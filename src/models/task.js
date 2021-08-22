@@ -1,9 +1,13 @@
-var mongoose = require('mongoose');  
+module.exports = function () {
+    var db = require('../db')();
+    var mongoose = require('mongoose');
+    var Schema = require('mongoose').Schema;
 
-var Task = mongoose.Schema({ 
-    title: String,
-    description: String,
-    status: Boolean
-});
+    var Task = Schema({
+        title: String,
+        description: String,
+        status: Boolean
+    });
 
-return mongoose.model('tasks',Task); 
+    return mongoose.model('tasks', Task);
+}
